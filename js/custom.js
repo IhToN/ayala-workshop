@@ -80,14 +80,10 @@ const gitHistory = () => {
 
         refreshLayout();
 
-        gitAdd(() => {
-            ex1.commit("Solve Excercise #1")
-        })
-            .then(() => gitAdd(() => {
-                master.merge(ex1)
-                ex2.merge(master);
-                ex2.commit("Start Excercise #2")
-            }))
+        gitAdd(() => ex1.commit("Solve Excercise #1"))
+            .then(() => gitAdd(() => master.merge(ex1)))
+            .then(() => gitAdd(() => ex2.merge(master)))
+            .then(() => gitAdd(() => ex2.commit("Start Excercise #2")))
             .then(() => gitAdd(() => ex2.commit("Solve Excercise #2")))
             .then(() => gitAdd(() => master.merge(ex2)));
 
