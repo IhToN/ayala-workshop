@@ -2,6 +2,8 @@ const graphOptions = {
     author: "ATAlgaba <atalgaba@gmail.com>"
 };
 
+const slides = {};
+
 Reveal.addEventListener('first-slide', () => {
     console.log("Starting first-slide");
     initPresentation();
@@ -55,7 +57,7 @@ const initPresentation = () => {
                 refreshLayout();
             }, 1000);
         }, 1000);
-        this.rendered = true;
+        initPresentation.rendered = true;
     }
 };
 
@@ -89,6 +91,6 @@ const gitHistory = () => {
             .then(() => gitAdd(() => ex2.commit("Solve Excercise #2")))
             .then(() => gitAdd(() => master.merge(ex2)));
 
-        this.rendered = true;
+        gitHistory.rendered = true;
     }
 };
