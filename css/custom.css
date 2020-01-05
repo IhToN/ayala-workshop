@@ -1,7 +1,12 @@
 .reveal section img {
-    display: block;
+    display: inline-block;
     margin: 0 auto;
     max-height: 500px;
+    vertical-align: middle;
+}
+
+.reveal section ul {
+    font-size: 0.8em;
 }
 
 #tabzilla {
