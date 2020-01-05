@@ -103,44 +103,18 @@
             <section data-state="git-history">
                 <div id="git-history"></div>
             </section>
-
-            <section>
-                <p>
-                    Use <code>class="lang"</code> to help hljs to figure out what language you are using.
-                    Use <code>data-noescape</code> in addition to <code>&lt;mark&gt;</code> to highlight
-                    sections of the code.
-                </p>
-                <pre><code class="js" data-noescape data-trim>
-<mark>app.post('/api/files', upload.single('file'), (req, res) => {</mark>
-  var destinatary = req.body.destinatary;
-  res.status(201).json({ destinatary });
-  originalNames[req.file.filename] = req.file.originalname;
-  enqueueFile(req.file, destinatary);
-  sendPendingFiles(destinatary);
-<mark>});</mark>
-              </code></pre>
-            </section>
-
-            <section>
-                <p>
-                    You can add <code>data-dim</code> to the previous markup to dim not marked code instead
-                    of highlighting marked one.
-                </p>
-                <pre><code class="js" data-noescape data-trim data-dim>
-<mark>app.post('/api/files', upload.single('file'), (req, res) => {</mark>
-  var destinatary = req.body.destinatary;
-  res.status(201).json({ destinatary });
-  originalNames[req.file.filename] = req.file.originalname;
-  enqueueFile(req.file, destinatary);
-  sendPendingFiles(destinatary);
-<mark>});</mark>
-              </code></pre>
-            </section>
         </section>
 
         <section>
-            <h2>Simple section</h2>
-            <p>Simple sections does not include title decorations</p>
+            <header>
+                <h1>Repositorios Online</h1>
+                <p>Los más conocidos</p>
+            </header>
+            <div class="row">
+                <img alt="GitHub Logo" data-src="./img/github-logo.png"/>
+                <img alt="GitLab Logo" data-src="./img/gitlab-logo.svg"/>
+                <img alt="Bitbucket Logo" data-src="./img/bitbucket-logo.svg"/>
+            </div>
         </section>
 
         <section data-markdown>

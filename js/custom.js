@@ -20,7 +20,7 @@ const refreshLayout = () => {
     }, 5);
 };
 
-const gitAdd = (callback, timeout = 1000) => {
+const gitAdd = (callback, timeout = 500) => {
     return new Promise(resolve => {
         setTimeout(() => {
             callback();
