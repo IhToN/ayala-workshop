@@ -1,0 +1,42 @@
+.reveal section img {
+    display: block;
+    margin: 0 auto;
+    max-height: 500px;
+}
+
+#tabzilla {
+    margin-right: 15px;
+}
+
+#tabzilla a {
+    height: 36px;
+    position: relative;
+    width: 147px;
+    background-image: url('../img/atalgaba.svg');
+    background-size: cover;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+    #tabzilla a {
+        background-image: url('../img/atalgaba.svg');
+        -webkit-background-size: 147px 36px;
+        background-size: 147px 36px;
+    }
+}
+
+#tabzilla:before {
+    width: 64%;
+    height: 80%;
+    position: absolute;
+    left: 18%;
+    top: 10%;
+    z-index: 1;
+
+    background-color: #484848;
+}
+
+html[dir='rtl'] #tabzilla {
+    float: left;
+    margin-right: 0;
+    margin-left: 15px;
+}

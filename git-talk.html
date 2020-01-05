@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="lib/tabzilla/css/tabzilla.css"/>
+    <link rel="stylesheet" href="css/theme/mozilla-devrel-light.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+
+    <link rel="stylesheet" href="css/custom.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+
+    <!-- Load the JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+</head>
+<body>
+
+<section id="tabzilla">
+    <a href="https://atalgaba.com/">ATAlgaba</a>
+</section>
+
+<div class="reveal">
+    <div class="slides">
+        <section data-state="first-slide">
+            <header>
+                <h1>Piensa en git</h1>
+                <div id="first-slide"></div>
+            </header>
+        </section>
+
+        <section>
+            <section>
+                <header>
+                    <h1>Qué es git</h1>
+                </header>
+            </section>
+            <section>
+                <img alt="Not final.doc" data-src="./img/slides/notFinalDoc.gif"/>
+            </section>
+            <section>
+                <img alt="How it works" data-src="./img/slides/git.png"/>
+            </section>
+        </section>
+
+        <section>
+            <ol>
+                <li>Bullet points.</li>
+                <li>Complex section.</li>
+                <li>Simple section.</li>
+            </ol>
+        </section>
+
+        <section>
+            <section>
+                <h2>Complex section</h2>
+            </section>
+
+            <section>
+                <p>
+                    Here you will find some examples of images, code samples
+                    and <a href="/index.html" target="_blank">links</a>.
+                </p>
+            </section>
+
+            <section>
+                <img alt="Chain link" src="./imgs/link.png"/>
+                <p>
+                    Put common images in the root folder but keep talk specific ones inside the
+                    presentation folder. If you need to borrow an image, <strong>cross link it</strong>.
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    You can include code. Try to make it not surpass 70 characters x 15 lines.
+                    In order for &lt;pre&gt;&lt;code&gt;&hellip;&lt;pre&gt;&lt;code&gt; to be
+                    well stylished, you need to keep together <code>pre</code> and <code>code</code>
+                    tags.
+                </p>
+                <pre><code class="js" data-trim>
+app.post('/api/files', upload.single('file'), (req, res) => {
+  var destinatary = req.body.destinatary;
+  res.status(201).json({ destinatary });
+  originalNames[req.file.filename] = req.file.originalname;
+  enqueueFile(req.file, destinatary);
+  sendPendingFiles(destinatary);
+});
+              </code></pre>
+            </section>
+
+            <section>
+                <p>
+                    Use <code>class="lang"</code> to help hljs to figure out what language you are using.
+                    Use <code>data-noescape</code> in addition to <code>&lt;mark&gt;</code> to highlight
+                    sections of the code.
+                </p>
+                <pre><code class="js" data-noescape data-trim>
+<mark>app.post('/api/files', upload.single('file'), (req, res) => {</mark>
+  var destinatary = req.body.destinatary;
+  res.status(201).json({ destinatary });
+  originalNames[req.file.filename] = req.file.originalname;
+  enqueueFile(req.file, destinatary);
+  sendPendingFiles(destinatary);
+<mark>});</mark>
+              </code></pre>
+            </section>
+
+            <section>
+                <p>
+                    You can add <code>data-dim</code> to the previous markup to dim not marked code instead
+                    of highlighting marked one.
+                </p>
+                <pre><code class="js" data-noescape data-trim data-dim>
+<mark>app.post('/api/files', upload.single('file'), (req, res) => {</mark>
+  var destinatary = req.body.destinatary;
+  res.status(201).json({ destinatary });
+  originalNames[req.file.filename] = req.file.originalname;
+  enqueueFile(req.file, destinatary);
+  sendPendingFiles(destinatary);
+<mark>});</mark>
+              </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <h2>Simple section</h2>
+            <p>Simple sections does not include title decorations</p>
+        </section>
+
+        <section data-markdown>
+            ## Markdown!
+
+            And remember you can use [markdown](https://github.com/hakimel/reveal.js#markdown)
+            with `data-markdown`.
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: '.plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
