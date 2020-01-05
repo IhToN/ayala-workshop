@@ -3,12 +3,34 @@ const graphOptions = {
 };
 
 Reveal.addEventListener('first-slide', () => {
+    console.log("Starting first-slide");
     initPresentation();
 });
 
+Reveal.addEventListener('git-history', () => {
+    console.log("Starting git-history");
+    gitHistory();
+});
+
+const refreshLayout = () => {
+    setTimeout(() => {
+        Reveal.layout();
+    }, 5);
+};
+
+const gitAdd = (callback, timeout = 1000) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            callback();
+            refreshLayout();
+            resolve();
+        }, timeout);
+    });
+};
+
 
 const initPresentation = () => {
-    if (!this.rendered) {
+    if (!initPresentation.rendered) {
         const customGraphOptions = {
             orientation: "vertical-reverse"
         };
@@ -37,9 +59,36 @@ const initPresentation = () => {
     }
 };
 
+const gitHistory = () => {
+    if (!gitHistory.rendered) {
+        const customGraphOptions = {
+            orientation: "vertical"
+        };
 
-const refreshLayout = () => {
-    setTimeout(() => {
-        Reveal.layout();
-    }, 5);
+        const graphContainer = document.getElementById("git-history");
+        const gitgraph = GitgraphJS.createGitgraph(graphContainer, Object.assign({}, graphOptions, customGraphOptions));
+
+        const master = gitgraph.branch("master");
+        const ex1 = gitgraph.branch("excercise-one");
+        const ex2 = gitgraph.branch("excercise-two");
+
+        master.commit("Initial commit");
+
+        ex1.merge(master);
+
+        refreshLayout();
+
+        gitAdd(() => {
+            ex1.commit("Solve Excercise #1")
+        })
+            .then(() => gitAdd(() => {
+                master.merge(ex1)
+                ex2.merge(master);
+                ex2.commit("Start Excercise #2")
+            }))
+            .then(() => gitAdd(() => ex2.commit("Solve Excercise #2")))
+            .then(() => gitAdd(() => master.merge(ex2)));
+
+        this.rendered = true;
+    }
 };

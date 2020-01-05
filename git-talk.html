@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Piensa en git - AT Algaba</title>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/reveal.css">
@@ -75,7 +75,7 @@
                 <h2>Funciones</h2>
             </section>
 
-            <section data-transition="none">
+            <section>
 <pre style="top: 25%; font-size: .2em; width: 100%"><code class="js" data-noescape data-trim data-dim>
 git help --all
 usage: git [--version] [--help] [-C <path>] [-c name=value]
@@ -111,22 +111,8 @@ usage: git [--version] [--help] [-C <path>] [-c name=value]
                 </code></pre>
             </section>
 
-            <section>
-                <p>
-                    You can include code. Try to make it not surpass 70 characters x 15 lines.
-                    In order for &lt;pre&gt;&lt;code&gt;&hellip;&lt;pre&gt;&lt;code&gt; to be
-                    well stylished, you need to keep together <code>pre</code> and <code>code</code>
-                    tags.
-                </p>
-                <pre><code class="js" data-trim>
-app.post('/api/files', upload.single('file'), (req, res) => {
-  var destinatary = req.body.destinatary;
-  res.status(201).json({ destinatary });
-  originalNames[req.file.filename] = req.file.originalname;
-  enqueueFile(req.file, destinatary);
-  sendPendingFiles(destinatary);
-});
-              </code></pre>
+            <section data-state="git-history">
+                <div id="git-history"></div>
             </section>
 
             <section>
@@ -188,7 +174,7 @@ app.post('/api/files', upload.single('file'), (req, res) => {
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
             {src: 'plugin/markdown/marked.js'},
-            {src: '.plugin/markdown/markdown.js'},
+            {src: 'plugin/markdown/markdown.js'},
             {src: 'plugin/notes/notes.js', async: true},
             {
                 src: 'plugin/highlight/highlight.js', async: true, callback: function () {
