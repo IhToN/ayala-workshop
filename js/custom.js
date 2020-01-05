@@ -32,7 +32,7 @@ const gitAdd = (callback, timeout = 1000) => {
 
 
 const initPresentation = () => {
-    if (!initPresentation.rendered) {
+    if (!slides.initPresentation) {
         const customGraphOptions = {
             orientation: "vertical-reverse"
         };
@@ -57,12 +57,12 @@ const initPresentation = () => {
                 refreshLayout();
             }, 1000);
         }, 1000);
-        initPresentation.rendered = true;
+        slides.initPresentation = true;
     }
 };
 
 const gitHistory = () => {
-    if (!gitHistory.rendered) {
+    if (!slides.gitHistory) {
         const customGraphOptions = {
             orientation: "vertical"
         };
@@ -91,6 +91,6 @@ const gitHistory = () => {
             .then(() => gitAdd(() => ex2.commit("Solve Excercise #2")))
             .then(() => gitAdd(() => master.merge(ex2)));
 
-        gitHistory.rendered = true;
+        slides.gitHistory = true;
     }
 };
