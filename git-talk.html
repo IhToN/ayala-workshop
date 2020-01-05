@@ -46,9 +46,7 @@
 
         <section>
             <section>
-                <header>
-                    <h1>Qué es git</h1>
-                </header>
+                <h2>Qué es git</h2>
             </section>
             <section>
                 <img alt="Not final.doc" data-src="./img/slides/notFinalDoc.gif"/>
@@ -56,9 +54,7 @@
             <section>
                 <img alt="How it works" data-src="./img/slides/git.png"/>
             </section>
-        </section>
 
-        <section>
             <section>
                 <p>¿Y esto cómo funciona?</p>
                 <ul>
@@ -76,19 +72,13 @@
             </section>
 
             <section>
-<pre style="top: 25%; font-size: .2em; width: 100%"><code class="js" data-noescape data-trim data-dim>
-git help --all
-usage: git [--version] [--help] [-C <path>] [-c name=value]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
-<span style="color: green">
+<pre style="top: 25%; font-size: .2em; width: 100%"><code class="js git-commands" data-noescape data-trim data-dim>
+
   add                       clone                     <mark>fast-import               interpret-trailers        notes                     remote-testsvn            submodule</mark>
   <mark>add--interactive          column                    fetch                     log                       p4                        repack                    subtree</mark>
   <mark>am</mark>                        commit                    <mark>fetch-pack                ls-files                  pack-objects              replace                   svn</mark>
   <mark>annotate                  commit-tree               filter-branch             ls-remote                 pack-redundant            request-pull              symbolic-ref</mark>
-  apply                     <mark>config                    fmt-merge-msg             ls-tree                   pack-refs                 rerere                    tag</mark>
+  <mark>apply                     config                    fmt-merge-msg             ls-tree                   pack-refs                 rerere                    tag</mark>
   <mark>archimport                count-objects             for-each-ref              mailinfo                  patch-id</mark>                  reset                     <mark>unpack-file</mark>
   <mark>archive                   credential                format-patch              mailsplit                 prune                     rev-list                  unpack-objects</mark>
   <mark>bisect                    credential-cache          fsck</mark>                      merge                     <mark>prune-packed              rev-parse                 update-index</mark>
@@ -107,7 +97,6 @@ usage: git [--version] [--help] [-C <path>] [-c name=value]
   cherry-pick               <mark>difftool</mark>                  init                      <mark>mktree                    remote-ftps</mark>               stash
   <mark>citool                    difftool--helper          init-db</mark>                   mv                        <mark>remote-http</mark>               status
   clean                     <mark>fast-export               instaweb                  name-rev                  remote-https              stripspace</mark>
-    </span>
                 </code></pre>
             </section>
 
@@ -170,7 +159,7 @@ usage: git [--version] [--help] [-C <path>] [-c name=value]
     // More info https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
         history: true,
-
+        width: 1220,
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
             {src: 'plugin/markdown/marked.js'},

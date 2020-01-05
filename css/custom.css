@@ -9,6 +9,17 @@
     font-size: 0.8em;
 }
 
+.reveal section .git-commands {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    color: green;
+    font-weight: bold;
+}
+
+.reveal section .git-commands mark {
+    opacity: 0.7;
+}
+
 #tabzilla {
     margin-right: 15px;
 }
