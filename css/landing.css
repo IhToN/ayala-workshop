@@ -122,7 +122,8 @@ body {
 }
 
 .btn-flip {
-    flex: 0 0 250px;
+    flex: 1 0 250px;
+    max-width: 400px;
     opacity: 1;
     outline: 0;
     color: #fff;
