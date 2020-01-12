@@ -52,7 +52,7 @@ footer .content .bottom .beat {
 }
 
 footer .content .top {
-    font-size: 25px;
+    font-size: 1.6rem;
 }
 
 footer .content .top .fa-twitter:hover {
@@ -127,7 +127,8 @@ body {
     opacity: 1;
     outline: 0;
     color: #fff;
-    line-height: 40px;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
     position: relative;
     text-align: center;
     letter-spacing: 1px;
@@ -149,10 +150,12 @@ body {
 
 
 .btn-flip:after {
-    top: 12px;
+    top: 15px;
     left: 0;
     opacity: 0;
     width: 100%;
+    height: 57%;
+    line-height: 2.6rem;
     color: #fff;
     display: block;
     transition: 0.5s;
