@@ -1,0 +1,55 @@
+Demo Link: https://api.graph.cool/simple/v1/swapi
+
+
+##### QueryExamples:
+query PersonajesPorEspecie($especie: String!, $info_extra: Boolean = false){
+  allPersons(filter: {
+    species_some: {
+      name: $especie
+    }
+  }) {
+    ...Personahe
+  }
+}
+
+query Personajes($info_extra: Boolean = false) {
+  allPersons {
+    ...Personahe
+  }
+}
+
+mutation NuevoPersonaje($nombre: String!, $info_extra: Boolean = false) {
+  createPerson(name:$nombre) {
+   ...Personahe
+  }
+}
+
+fragment Personahe on Person {
+  __typename
+  id
+  name
+  gender
+  species @include(if: $info_extra) {
+    ...Especie
+  }
+  # films @include(if: $info_extra){
+  #   ...Peliculica
+  # }
+}
+
+# fragment Peliculica on Film {
+#   title
+#   director
+# }
+
+fragment Especie on Species {
+	name
+}
+
+
+##### VARIABLES
+{
+  "especie": "HUMAN",
+  "info_extra": false,
+  "nombre": "Yo"
+}

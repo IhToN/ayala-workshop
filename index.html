@@ -2,9 +2,40 @@
 <html>
 <head>
     <title>I.E.S. Francisco Ayala - Talleres</title>
+    <script src="https://kit.fontawesome.com/2f7fde51f8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/landing.css">
 </head>
+
+<script type="text/javascript">
+    function goTo(link) {
+        console.log("Going to", link);
+        window.location.href = link;
+    }
+</script>
 <body>
-<a href="git-talk.html">git Workshop</a>
-<a href="git-talk.html">GraphQL Workshop</a>
+
+<div class="artboard">
+    <div class="buttons">
+    <div class="button" onclick="goTo('git-talk.html#/')">
+        <div class="links noselect"><a>Amoh pallá</a></div>
+        <div class="overlay noselect"><a>Piensa en git</a></div>
+    </div>
+    <div class="button" onclick="goTo('graphql-talk.html#/')">
+        <div class="links noselect"><a>Amoh pallá</a></div>
+        <div class="overlay noselect"><a>GraphQL</a></div>
+    </div>
+    </div>
+</div>
+<footer>
+    <div class="content">
+        <div class="top">
+            <a target="_blank" href="https://twitter.com/IhToN/"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://codepen.io/atalgaba/"><i class="fab fa-codepen"></i></a>
+        </div>
+        <div class="bottom">
+            <a>made with <i class="fas fa-heart beat"></i> by <a target="_blank" href="https://codepen.io/akshaycodes/">ATAlgaba</a></a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

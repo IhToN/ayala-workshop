@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Piensa en git - AT Algaba</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="lib/tabzilla/css/tabzilla.css"/>
+    <link rel="stylesheet" href="css/theme/mozilla-devrel-light.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+
+    <link rel="stylesheet" href="css/custom.css"/>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+
+    <!-- Load the JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+</head>
+<body>
+
+<section id="tabzilla">
+    <a href="https://atalgaba.com/">ATAlgaba</a>
+</section>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <header>
+                <h1>GraphQL</h1>
+                <p>O cómo mandar las REST APIs a fregar</p>
+            </header>
+        </section>
+
+        <section>
+            <section>
+                <h2>Qué y por qué</h2>
+            </section>
+            <section>
+                <p>Otro estándar más de APIs. Desarrollado por FaceBook aunque ahora es un proyecto Open Source.</p>
+                <p>Y esto hacía falta porque... ¿qué?</p>
+                <p class="fragment fade-up">A más móviles, cuanto menos datos se usen mejor.</p>
+                <p class="fragment fade-up">Una única API para todas las aplicaciones.</p>
+                <p class="fragment fade-up">Quien se come la cabeza es el cliente, no el servidor.</p>
+            </section>
+
+            <section>
+                <p>¿Qué nos soluciona?</p>
+                <ul>
+                    <li class="fragment fade-up">Overfecth - No pedimos más datos de los estrictamente necesarios</li>
+                    <li class="fragment fade-up">Underfetch y las n+1 peticiones</li>
+                    <li class="fragment fade-up">No más modificar la API porque faltan datos</li>
+                    <li class="fragment fade-up">Schemas y Tipado fuerte</li>
+                </ul>
+            </section>
+
+            <section>
+                <img alt="REST Request Example" data-src="./img/slides/rest-example.png"/>
+            </section>
+            <section>
+                <img alt="GraphQL Request Example" data-src="./img/slides/gql-example.png"/>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Conceptos Clave</h2>
+            </section>
+
+            <section>
+                <h3>SDL - Schema Definition Language</h3>
+                <pre style="width: 90%"><code class="n1ql" data-noescape data-trim data-dim>
+                    type Person {                           type Query {
+                        name: String!                           allPersons: [Person!]
+                        email: String!                          allPosts(person_name: String): [Post!]
+                        age: Int                            }
+                        posts: [Post!]!
+                    }
+                                                            type Mutation {
+                    type Post {                                 createPerson(name: String!, email: String!, age: Int): Person!
+                        title: String!                          createPost(title: String!, person_name: String!): Post!
+                        author: Person!                     }
+                    }
+                                                            type Subscription {
+                                                                newPerson: Person!
+                                                                newPost: Post!
+                                                            }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Query - Pedir datos</h3>
+                <pre><code class="n1ql" data-noescape data-trim data-dim>
+                    query {
+                        allPersons {
+                            name
+                            email
+                            posts {
+                                title
+                            }
+                        }
+                    }
+
+                    query {
+                        allPosts(person_name: "Pepe Viyuela") {
+                            title
+                        }
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Mutation - Crear, modificar o borrar</h3>
+                <pre><code class="n1ql" data-noescape data-trim data-dim>
+                    mutation {
+                        createPerson(name: "Antonio", email: "atalgaba@gmail.com", 26) {
+                            name
+                            email
+                            age
+                        }
+                    }
+
+                    mutation {
+                        createPost(title: "Invitadme a una cervecita, no?", person_name: "Antonio") {
+                            title
+                            author {
+                                name
+                            }
+                        }
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Subcription - Actualizaciones en Tiempo Real</h3>
+                <pre><code class="n1ql" data-noescape data-trim data-dim>
+                    subcription {
+                        "newPerson": {
+                            name
+                            email
+                            age
+                        }
+                    }
+
+                    subcription {
+                        "newPost": {
+                            title
+                            author {
+                                name
+                            }
+                        }
+                    }
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <header>
+                <h4>Y ahora toca</h4>
+                <p>mancharse las manos</p>
+            </header>
+        </section>
+    </div>
+</div>
+
+<script src="js/reveal.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+        width: 1220,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

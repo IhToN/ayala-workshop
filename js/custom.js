@@ -6,7 +6,7 @@ const slides = {};
 
 Reveal.addEventListener('first-slide', () => {
     console.log("Starting first-slide");
-    initPresentation();
+    setTimeout(initPresentation, 2 * 1000);
 });
 
 Reveal.addEventListener('git-history', () => {
