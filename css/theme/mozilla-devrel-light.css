@@ -335,8 +335,8 @@ body {
 .reveal code[data-dim] mark {
   color: #CBBE9A;
   background-color: transparent; }
-.reveal code[data-dim] mark * {
-  color: #CBBE9A; }
+  .reveal code[data-dim] mark * {
+    color: #CBBE9A; }
 
 .reveal pre {
   width: 106ex;
